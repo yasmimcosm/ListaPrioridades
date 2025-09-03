@@ -53,17 +53,7 @@ projeto-fila-prioridade/
 
 O projeto foi dividido para facilitar a colaboração entre duas pessoas:
 
-## Pessoa 1
-1. Implementação do ADT Fila com Prioridade (fila.py).
-2. Métodos:
-   - adicionar_pessoa(pessoa).
-   - atender_pessoa().
-   - listar_fila().
-   - Estatísticas de atendimentos.
-5. Estrutura interna da fila (array ou lista encadeada).
-6. Controle da política 1com2sem.
-
-## Pessoa 2
+## Yasmim Silva Cosme
 
 1. Implementação da interface cliente (main.py).
    - Menu interativo
@@ -73,6 +63,18 @@ O projeto foi dividido para facilitar a colaboração entre duas pessoas:
 6. Listagem da fila e exibição de estatísticas finais
 7. Garantir que o programa não saia com pessoas na fila
 
+## José Mateus Araújo Alves
+
+1. Implementação do ADT Fila com Prioridade (fila.py).
+2. Métodos:
+   - adicionar_pessoa(pessoa).
+   - atender_pessoa().
+   - listar_fila().
+   - Estatísticas de atendimentos.
+5. Estrutura interna da fila (array ou lista encadeada).
+6. Controle da política 1com2sem.
+
+---
 ## Entregáveis
 - Código-fonte completo
 - Relatório técnico (máx. 3 páginas)
