@@ -7,7 +7,6 @@ comPrioridade = []
 semPrioridade = []
 
 def animacao(mensagem="...", tempo_total=3, intervalo=0.5):
-    """Animação simples de pontinhos"""
     tempoDecorrido = 0
     while tempoDecorrido < tempo_total:
         for i in range(1, 4):
@@ -30,37 +29,39 @@ while (situacao == True):
     print("[2] Atender próxima pessoa")
     print("[3] Listar pessoas na fila")
     print("[0] Sair do programa")
-    print("\n")
 
     opcao = input("Escolha uma das opções acima para realizar: ")
 
     match opcao:
         case "1":
             animacao("Registrando")
-
-            sn = input("A pessoa tem prioridade? [1-Sim / 2-Não]: ")
-            nome = input("Qual é o nome da pessoa?: ")
-            fila.adicionarPessoa(nome, prioridade=(sn == "1"))
-            print(f"{nome} adicionado(a) à fila!")
-            time.sleep(5)
+            nome = fila.validarNome()
+            sn = int(input("A pessoa tem prioridade? [1-Sim / 2-Não]: "))
+            if fila.adicionarPessoa(nome, sn):
+                print(f"{nome} adicionado(a) à fila!")
+            else:
+                print("Opção Inválida, tente novamente")
+            time.sleep(4)
             print("\n")
 
         case "2":
             animacao("Chamando")
-            print(fila.atenderPessoa())
-            time.sleep(5)
+            fila.atenderPessoa()
+            time.sleep(4)
 
         case "3":
             animacao("Carregando")
-            comPrioridade, semPrioridade = fila.listar_fila()
+            comPrioridade, semPrioridade = fila.listarFila()
             print(f"Fila com prioridade no aguardo: {comPrioridade}")
             print(f"Fila sem prioridade no aguardo: {semPrioridade}")
-            time.sleep(5)
+            time.sleep(4)
             print("\n")
 
         case "0":
             if not fila.filaVazia():
                 print("Ainda há pessoas na fila! Atenda todos antes de sair.")
+                time.sleep(4)
+                
             else:
                 animacao("Finalizando")
                 print("Até mais!")
