@@ -3,8 +3,6 @@ import sys
 from fila import FilaComPrioridade
 
 fila = FilaComPrioridade()
-comPrioridade = []
-semPrioridade = []
 
 def animacao(mensagem="...", tempo_total=3, intervalo=0.5):
     tempoDecorrido = 0
@@ -36,7 +34,13 @@ while (situacao == True):
         case "1":
             animacao("Registrando")
             nome = fila.validarNome()
-            sn = int(input("A pessoa tem prioridade? [1-Sim / 2-Não]: "))
+            while True:
+                sn = input("A pessoa tem prioridade? [1-Sim / 2-Não]: ")
+                if sn in ["1", "2"]:  
+                    sn = int(sn)       
+                    break              
+                print("Opção inválida! Digite 1 para Sim ou 2 para Não.")
+
             if fila.adicionarPessoa(nome, sn):
                 print(f"{nome} adicionado(a) à fila!")
             else:
@@ -51,9 +55,9 @@ while (situacao == True):
 
         case "3":
             animacao("Carregando")
-            comPrioridade, semPrioridade = fila.listarFila()
-            print(f"Fila com prioridade no aguardo: {comPrioridade}")
-            print(f"Fila sem prioridade no aguardo: {semPrioridade}")
+            fila.listarFila()
+            print(f"Fila com prioridade no aguardo: {fila.comPrioridade}")
+            print(f"Fila sem prioridade no aguardo: {fila.semPrioridade}")
             time.sleep(4)
             print("\n")
 
@@ -61,8 +65,9 @@ while (situacao == True):
             if not fila.filaVazia():
                 print("Ainda há pessoas na fila! Atenda todos antes de sair.")
                 time.sleep(4)
-                
+
             else:
+                fila.dadosPessoa()
                 animacao("Finalizando")
                 print("Até mais!")
                 situacao = False
