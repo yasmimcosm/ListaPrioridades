@@ -24,7 +24,7 @@ class FilaComPrioridade:
             while i < 3:
                 if self.comPrioridade:
                     atendido = self.comPrioridade[0]
-                    print(f"Atendido(a): {atendido}, com prioridade")
+                    print(f"Atendimento prioritário: {atendido}")
                     self.comPrioridade.remove(atendido)                    
                     self.atendidosComPrioridade += 1
                     self.totalAtendidos += 1
@@ -32,7 +32,7 @@ class FilaComPrioridade:
                     j = 0  
                     while j < 2 and self.semPrioridade:
                         atendido = self.semPrioridade[0]
-                        print(f"Atendido(a): {atendido}, sem prioridade")
+                        print(f"Atendimento não-prioritário: {atendido}")
                         self.semPrioridade.remove(atendido)
                         self.atendidosSemPrioridade += 1
                         self.totalAtendidos += 1
@@ -43,7 +43,7 @@ class FilaComPrioridade:
 
                 elif self.semPrioridade:
                     atendido = self.semPrioridade[0]
-                    print(f"Atendido(a): {atendido}, sem prioridade")
+                    print(f"Atendimento não-prioritário: {atendido}")
                     self.semPrioridade.remove(atendido)
                     self.atendidosSemPrioridade += 1
                     self.totalAtendidos += 1
@@ -82,5 +82,5 @@ class FilaComPrioridade:
         print("=== Estatísticas de atendimento ===")
         print(f"Total de pessoas atendidas: {self.totalAtendidos}")
         if self.totalAtendidos > 0:
-            print(f"Com prioridade: {self.atendidosComPrioridade / self.totalAtendidos * 100:.1f}%")
-            print(f"Sem prioridade: {self.atendidosSemPrioridade / self.totalAtendidos * 100:.1f}%")
+            print(f"Atendidos com prioridade: {self.atendidosComPrioridade / self.totalAtendidos * 100:.1f}%")
+            print(f"Atendidos sem prioridade: {self.atendidosSemPrioridade / self.totalAtendidos * 100:.1f}%")
