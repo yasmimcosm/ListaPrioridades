@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/Python-blue)
 ![GitHub](https://img.shields.io/badge/GitHub-ControleEstoque-green)
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-orange)
+![Status](https://img.shields.io/badge/status-concluído-blue)
 
 ---
 
